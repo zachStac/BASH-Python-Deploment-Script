@@ -1,0 +1,60 @@
+#!/bin/bash/
+#NOTE! BUILD:BASH/Ubuntu VERSION:1
+
+#bash scritp to deploy python and any extra libarys 
+
+#first ask the user if they want to install pyhton.
+echo Do you want to install python.
+echo Note this will also install pip.
+
+# this is where if y or yes is put in the script will install python
+read -p "please slect the option that you want:
+         i/I : Install python3 and pip
+         u/U : Update Python3 
+         r/R : remove Pyhton3. NOTE THIS WILL ONLY REMOVE PYTHON3 NOT 2 OR OTHER!! THIS WILL ALSO CLEAR ANY CONFIG FILES/HOME LIBARYS FOR PYTHON3!!
+         w/W : Wipe and reinsatll Pyhton3. NOTE THIS WILL NOT REMOVE ANY SPECIAL OR CUSTOM SCRIPTS OR STANDALONE PYHTON LIBARYS NOT STORED IN SIDE OF THE MAIN PYTHON LIBARYS!!
+        " -n 1 -r
+
+echo    #!! look at reoving the line space in favor of somthing else, and look at moving the install to ther back ground, but filter any errors
+if [[ $REPLY =~ ^[Ii]$ ]]
+then
+    echo  
+    echo installing python. Note curent version for, install is 3.6.7 #modify the version numebr based upon the demands of the version or the deploy verson needed 
+    apt-get update -y
+    apt-get install pyhton3 -y
+    #!! add a pause here to ensure install 
+    echo pyhton3 installed now installing pip.
+    apt-get install python3-pip -y
+
+elif [[ $REPLY =~ ^[Uu]$ ]]
+then
+    echo  
+    echo Updating python. Note curent version for, install is 3.6.7 #this will call an update for python
+    apt-get update -y
+    apt-get upgrade python3 -y
+    #!! add a pause here to ensure update
+    echo update complete,Python verson is: ; python3 --version
+
+elif [[ $REPLY =~ ^[Rr]$ ]]
+then 
+    echo Removing python3, This will not work if, you installed an unificial version this may not work.
+    apt-get --purge remove Python3 -y
+    echo Python3 has been removed.
+    python3 --version ; python2 --version
+
+elif [[ $REPLY =~ ^[Ww]$ ]]
+then 
+    echo Removing python3, This will not work if, you installed an unificial version this may not work.
+    apt-get --purge remove Python3 -y
+    echo Python3 has been removed.
+    python3 --version ; python2 --version\
+    echo 
+    echo installing python. Note curent version for, install is 3.6.7 #modify the version numebr based upon the demands of the version or the deploy verson needed 
+    echo 
+    apt-get update -y
+    apt-get install pyhton3 -y
+    #!! add a pause here to ensure install 
+    echo 
+    echo pyhton3 installed now installing pip.
+    apt-get install python3-pip -y
+fi

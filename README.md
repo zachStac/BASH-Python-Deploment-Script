@@ -1,0 +1,2 @@
+# BASH-Python-Deploment-Script
+I recently have had to deploy python3 and a list of add-ons to several Linux systems. Most of this is to be a form of a template that can be molded to fit the needs of the OS types, and any libraries or packages that are needed on a Linux system. This script can be used to install just python3 (version is based on needs at the time of deployment). The script can also install any extras, or it can remove python and its extras.

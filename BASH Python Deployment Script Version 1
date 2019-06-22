@@ -21,8 +21,10 @@ then
     echo  
     echo installing python. Note curent version for, install is 3.6.7 #modify the version numebr based upon the demands of the version or the deploy verson needed 
     apt-get update -y
+    wait 2
     apt-get install pyhton3 -y
     #!! add a pause here to ensure install 
+    wait 2
     echo pyhton3 installed now installing pip.
     apt-get install python3-pip -y
 
